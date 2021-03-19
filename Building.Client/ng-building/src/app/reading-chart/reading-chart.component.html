@@ -1,0 +1,23 @@
+<div class="jumbotron py-3">
+    <h1 class="display-4 text-center">Chart of Reading</h1>
+</div>
+<div>
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th>Building Id</th>
+                <th>Card Number</th>
+                <th>Exp.</th>
+                <th>Value</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tr *ngFor="let read of service.list">
+            <td >{{read.buildingId}}</td>
+            <td >{{read.dataFieldId}}</td>
+            <td >{{read.objectId}}</td>
+            <td >{{read.value}}</td>
+            <td >{{read.timestamp}}</td>
+        </tr>
+    </table>
+</div>

@@ -24,6 +24,7 @@ namespace Building.API
             services.AddBusinessLogicLayer();
             services.AddDataAccessLayer();
             services.AddControllers();
+            services.AddCors();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Building.API", Version = "v1" });
@@ -39,6 +40,11 @@ namespace Building.API
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Building.API v1"));
             }
+
+            app.UseCors(options =>
+                options.WithOrigins("http://localhost:4200")
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
 
             app.UseHttpsRedirection();
 
