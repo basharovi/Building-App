@@ -20,7 +20,7 @@ namespace Building.DAL.Repositories
         
         public async Task<IReadOnlyList<Reading>> GetAllAsync()
         {
-            const string sql = "SELECT * FROM Readings";
+            const string sql = "SELECT * FROM Reading";
             using (var connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
