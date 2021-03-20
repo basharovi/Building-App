@@ -4,8 +4,8 @@
     
 <div class="chart-wrapper">
     <canvas baseChart 
-        [datasets]="lineChartData" 
-        [labels]="lineChartLabels" 
+        [datasets]="GetDataSet()" 
+        [labels]="GetLabels()" 
         [options]="lineChartOptions"
         [colors]="lineChartColors" 
         [legend]="lineChartLegend" 
@@ -14,14 +14,14 @@
     </canvas>
 </div>
 
-
+<br> <br>
 <div>
     <table class="table">
         <thead class="thead-light">
             <tr>
-                <th>Building Id</th>
-                <th>Card Number</th>
-                <th>Exp.</th>
+                <th>Building ID</th>
+                <th>Object ID</th>
+                <th>Datafield ID</th>
                 <th>Value</th>
                 <th>Timestamp</th>
             </tr>

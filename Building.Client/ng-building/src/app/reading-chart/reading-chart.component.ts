@@ -17,37 +17,33 @@ export class ReadingChartComponent implements OnInit{
     this.service.readingList();
   }
 
-  GetValueList(){
+  GetDataSet(){
     let valueList: number[] = [];
 
     this.service.list.forEach(element => {
       valueList.push(element.value);
     });
 
-    console.log(this.service.list);
+    let lineChartData: ChartDataSets[] = [
+      { data: valueList, label: 'Timeseries Data' },
+    ];
 
-    // return valueList;
-
-    return [5.76, 3.55, 4.66, 3.63, 7.94, 6.55, 3.55, 4, 6.12, 2.56, 5.76, 3.55, 4.66, 3.63, 7.94, 6.55, 3.55, 4, 6.12, 2.56];
+    return lineChartData;
   }
 
-  GetTimestampList(){
+  GetLabels(){
     let timestampList: string[] = [];
 
     this.service.list.forEach(element => {
-      timestampList.push(element.timestamp.toTimeString());
+      timestampList.push(element.timestamp.toString());
     });
 
-    // return timestampList;
+    console.log(timestampList);
 
-    return ['6:10, 00: 20, 00:30', '4:40', '5:50', '6:10, 00: 20, 00:30', '4:40', '5:50', '6:10, 00: 20, 00:30', '4:40', '5:50', '6:10, 00: 20, 00:30', '4:40', '5:50',];
+    return timestampList;
   }
 
-  lineChartData: ChartDataSets[] = [
-    { data: this.GetValueList(), label: 'Timeseries Data' },
-  ];
-
-  lineChartLabels: Label[] = this.GetTimestampList();
+  
 
   lineChartOptions = {
     responsive: true,
