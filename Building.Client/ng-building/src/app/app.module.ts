@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { ReadingChartComponent } from './reading-chart/reading-chart.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { ChartsModule } from 'ng2-charts';
+// import { SelectDropDownModule } from 'ngx-select-dropdown'
+
 
 @NgModule({
   declarations: [
@@ -15,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,20 @@
 <div class="jumbotron py-3">
     <h1 class="display-4 text-center">Chart of Reading</h1>
 </div>
+    
+<div class="chart-wrapper">
+    <canvas baseChart 
+        [datasets]="lineChartData" 
+        [labels]="lineChartLabels" 
+        [options]="lineChartOptions"
+        [colors]="lineChartColors" 
+        [legend]="lineChartLegend" 
+        [chartType]="lineChartType" 
+        [plugins]="lineChartPlugins">
+    </canvas>
+</div>
+
+
 <div>
     <table class="table">
         <thead class="thead-light">
@@ -21,3 +35,5 @@
         </tr>
     </table>
 </div>
+
+<!-- <ngx-select-dropdown></ngx-select-dropdown> -->
