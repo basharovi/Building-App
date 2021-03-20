@@ -7,7 +7,9 @@ import { ReadingChartComponent } from './reading-chart/reading-chart.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { ChartsModule } from 'ng2-charts';
-// import { SelectDropDownModule } from 'ngx-select-dropdown'
+import { FormsModule } from '@angular/forms';
+import { SelectDropDownModule } from 'ngx-select-dropdown';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 
 
 @NgModule({
@@ -19,7 +21,10 @@ import { ChartsModule } from 'ng2-charts';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ChartsModule
+    ChartsModule,
+    FormsModule,
+    SelectDropDownModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

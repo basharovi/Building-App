@@ -2,20 +2,53 @@
     <h1 class="display-4 text-center">Chart of Reading</h1>
 </div>
     
-<div class="chart-wrapper">
-    <canvas baseChart 
-        [datasets]="GetDataSet()" 
-        [labels]="GetLabels()" 
-        [options]="lineChartOptions"
-        [colors]="lineChartColors" 
-        [legend]="lineChartLegend" 
-        [chartType]="lineChartType" 
-        [plugins]="lineChartPlugins">
-    </canvas>
-</div>
+    <div class="card">
+        <div class="card-body">
+            <div class="form-row">
+                <div class="row col-md-3">
+                    <label>Building:</label>
+                    <ngx-select-dropdown [config]="config" [(ngModel)]="buildingSelect" 
+                    class="col-md-8" [options]="options"></ngx-select-dropdown>
+                </div>
+                <div class="row col-md-3">
+                    <label>Object:</label>
+                    <ngx-select-dropdown class="col-md-8"></ngx-select-dropdown>
+                </div>
+                <div class="row col-md-3">
+                    <label>Datafield:</label>
+                    <ngx-select-dropdown class="col-md-8"></ngx-select-dropdown>
+                </div>
+                <div class="row col-md-3">
+                    <label>Datarange:</label>
+                    <input type="text" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" class="form-control col-md-8"/>
+                </div>
+                <div class="col-md-1">
+                    <input class="btn btn-primary" (click)="filterData()"  type="button" value="Search"/>
+                </div>
+            </div>
+        </div>
+      </div>
+    <br> <br>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="chart-wrapper">
+                <canvas baseChart 
+                    [datasets]="GetDataSet()" 
+                    [labels]="GetLabels()" 
+                    [options]="lineChartOptions"
+                    [colors]="lineChartColors" 
+                    [legend]="lineChartLegend" 
+                    [chartType]="lineChartType" 
+                    [plugins]="lineChartPlugins">
+                </canvas>
+            </div>
+        </div>
+      </div>
+
 
 <br> <br>
-<div>
+<!-- <div>
     <table class="table">
         <thead class="thead-light">
             <tr>
@@ -34,6 +67,5 @@
             <td >{{read.timestamp}}</td>
         </tr>
     </table>
-</div>
+</div> -->
 
-<!-- <ngx-select-dropdown></ngx-select-dropdown> -->
