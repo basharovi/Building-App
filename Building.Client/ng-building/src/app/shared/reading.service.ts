@@ -19,4 +19,5 @@ export class ReadingService {
       .then(res =>this.list = res as Reading[]);
       
   }
+  
 }

@@ -8,7 +8,7 @@ import { Object } from './object.model';
 @Injectable({
   providedIn: 'root'
 })
-export class ReadingService {
+export class DropdownService {
 
   readonly baseURL = 'https://localhost:44322/api/';
 

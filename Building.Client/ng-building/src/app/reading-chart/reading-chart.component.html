@@ -8,15 +8,15 @@
                 <div class="row col-md-3">
                     <label>Building:</label>
                     <ngx-select-dropdown [config]="config" [(ngModel)]="buildingSelect" 
-                    class="col-md-8" [options]="options"></ngx-select-dropdown>
+                    class="col-md-8" [options]="loadBuildingDD()"></ngx-select-dropdown>
                 </div>
                 <div class="row col-md-3">
                     <label>Object:</label>
-                    <ngx-select-dropdown class="col-md-8"></ngx-select-dropdown>
+                    <ngx-select-dropdown [config]="config" [options]="loadObjectDD()" class="col-md-8"></ngx-select-dropdown>
                 </div>
                 <div class="row col-md-3">
                     <label>Datafield:</label>
-                    <ngx-select-dropdown class="col-md-8"></ngx-select-dropdown>
+                    <ngx-select-dropdown [config]="config" [options]="loadDataFieldDD()" class="col-md-8"></ngx-select-dropdown>
                 </div>
                 <div class="row col-md-3">
                     <label>Datarange:</label>

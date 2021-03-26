@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ChartDataSets, ChartType } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
 import { ReadingService } from '../shared/reading.service';
+import { DropdownService } from '../shared/dropdown.service';
 
 @Component({
   selector: 'app-reading-chart',
@@ -10,11 +11,15 @@ import { ReadingService } from '../shared/reading.service';
 })
 export class ReadingChartComponent implements OnInit{
 
-  constructor(public service: ReadingService) {
+  constructor(public readingService: ReadingService,
+    public dropDownService: DropdownService) {
    }
 
   ngOnInit(): void {
-    this.service.readingList();
+    this.readingService.readingList();
+    this.dropDownService.getBuildingList();
+    this.dropDownService.getDataFieldList();
+    this.dropDownService.getObjectList();
   }
 
   buildingSelect : any = [];
@@ -23,7 +28,7 @@ export class ReadingChartComponent implements OnInit{
   GetDataSet(){
     let valueList: number[] = [];
 
-    this.service.list.forEach(element => {
+    this.readingService.list.forEach(element => {
       valueList.push(element.value);
     });
 
@@ -37,7 +42,7 @@ export class ReadingChartComponent implements OnInit{
   GetLabels(){
     let timestampList: string[] = [];
 
-    this.service.list.forEach(element => {
+    this.readingService.list.forEach(element => {
       timestampList.push(element.timestamp.toString());
     });
 
@@ -64,7 +69,7 @@ export class ReadingChartComponent implements OnInit{
   lineChartType:ChartType = 'line';
 
   config = {
-    displayKey: "balance", // if objects array passed which key to be displayed defaults to description
+    displayKey: "name", // if objects array passed which key to be displayed defaults to description
     search: true,
     limitTo: 3,
   };
@@ -115,6 +120,18 @@ export class ReadingChartComponent implements OnInit{
 
   isInvalidDate(inputDate: { weekday: () => number; }) {
     return inputDate.weekday() === 0;
+  }
+
+  loadBuildingDD(){
+    return this.dropDownService.buildingList;
+  }
+
+  loadObjectDD(){
+    return this.dropDownService.objectList;
+  }
+
+  loadDataFieldDD(){
+    return this.dropDownService.dataFieldList;
   }
 
 }
