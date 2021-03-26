@@ -11,7 +11,7 @@ namespace Building.DAL
             services.AddTransient<IReadingRepository, ReadingRepository>();
             services.AddTransient<IBuildingRepository, BuildingRepository>();
             services.AddTransient<IDataFieldRepository, DataFieldRepository>();
-            services.AddTransient<ObjectRepository, ObjectRepository>();
+            services.AddTransient<IObjectRepository, ObjectRepository>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
         }
     }

@@ -8,13 +8,13 @@ import { Reading } from './reading.model';
 export class ReadingService {
 
   formData: Reading= new Reading();
-  readonly baseURL = 'https://localhost:44322/api/Reading';
+  readonly baseURL = 'https://localhost:44322/api/';
   list: Reading[] = [];
 
   constructor(private http: HttpClient) { }
 
   readingList() {
-    this.http.get(this.baseURL)
+    this.http.get(this.baseURL + "Reading")
       .toPromise()
       .then(res =>this.list = res as Reading[]);
       
