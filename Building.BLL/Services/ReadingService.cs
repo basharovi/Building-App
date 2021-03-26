@@ -1,4 +1,5 @@
 ﻿using Building.DAL.UniOfWork;
+using Building.Domain;
 using Building.Domain.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -17,6 +18,12 @@ namespace Building.BLL.Services
         public Task<IReadOnlyList<Reading>> GetAllAsync()
         {
             return _unitOfWork.ReadingRepository.GetAllAsync();
+        }
+
+        public Task<IReadOnlyList<Reading>> GetAllFilteredAsync(ReadingDto readingDto)
+        {
+            return _unitOfWork.ReadingRepository.GetAllFilteredAsync(readingDto);
+
         }
     }
 }

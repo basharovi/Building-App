@@ -1,10 +1,10 @@
 ﻿using Building.BLL.Services;
+using Building.Domain;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace Building.API.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
     public class ReadingController : ControllerBase
     {
@@ -16,9 +16,19 @@ namespace Building.API.Controllers
         }
 
         [HttpGet]
+        [Route("api/[controller]")]
         public async Task<IActionResult> GetAll()
         {
             var data = await _readingService.GetAllAsync();
+
+            return Ok(data);
+        }
+
+        [HttpGet]
+        [Route("api/[controller]/Filter")]
+        public async Task<IActionResult> GetAll([FromQuery] ReadingDto readingDto)
+        {
+            var data = await _readingService.GetAllFilteredAsync(readingDto);
 
             return Ok(data);
         }
