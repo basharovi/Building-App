@@ -11,7 +11,8 @@ import { FormsModule } from '@angular/forms';
 import { SelectDropDownModule } from 'ngx-select-dropdown';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 
-
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from '@danielmoncada/angular-datetime-picker';
+import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
     ChartsModule,
     FormsModule,
     SelectDropDownModule,
-    NgbModule
+    NgbModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
+    NgxDaterangepickerMd.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

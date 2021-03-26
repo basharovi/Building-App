@@ -20,7 +20,16 @@
                 </div>
                 <div class="row col-md-3">
                     <label>Datarange:</label>
-                    <input type="text" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" class="form-control col-md-8"/>
+
+                    <input type="text"
+                        ngxDaterangepickerMd
+                        [timePicker]="true"
+                        [timePickerSeconds]="true"
+                        [timePickerIncrement]="15"
+                        [timePicker24Hour]="false"
+                        [locale]="{format: 'DD/MM/YYYY HH:mm:ss', firstDay: 1}"
+                        [(ngModel)]="selected" class="form-control col-md-7"/>
+                    
                 </div>
                 <div class="col-md-1">
                     <input class="btn btn-primary" (click)="filterData()"  type="button" value="Search"/>
@@ -45,27 +54,3 @@
             </div>
         </div>
       </div>
-
-
-<br> <br>
-<!-- <div>
-    <table class="table">
-        <thead class="thead-light">
-            <tr>
-                <th>Building ID</th>
-                <th>Object ID</th>
-                <th>Datafield ID</th>
-                <th>Value</th>
-                <th>Timestamp</th>
-            </tr>
-        </thead>
-        <tr *ngFor="let read of service.list">
-            <td >{{read.buildingId}}</td>
-            <td >{{read.dataFieldId}}</td>
-            <td >{{read.objectId}}</td>
-            <td >{{read.value}}</td>
-            <td >{{read.timestamp}}</td>
-        </tr>
-    </table>
-</div> -->
-

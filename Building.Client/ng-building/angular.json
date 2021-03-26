@@ -29,6 +29,8 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/ng-pick-datetime/assets/style/picker.min.css",
+              "node_modules/@danielmoncada/angular-datetime-picker/assets/style/picker.min.css",
               "src/styles.css"
             ],
             "scripts": []

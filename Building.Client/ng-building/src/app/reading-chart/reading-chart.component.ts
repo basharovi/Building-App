@@ -18,6 +18,7 @@ export class ReadingChartComponent implements OnInit{
   }
 
   buildingSelect : any = [];
+  selected: any;
 
   GetDataSet(){
     let valueList: number[] = [];
@@ -110,6 +111,10 @@ export class ReadingChartComponent implements OnInit{
     const selectedBuilding = this.buildingSelect?.balance;
     
     console.log(selectedBuilding);
+  }
+
+  isInvalidDate(inputDate: { weekday: () => number; }) {
+    return inputDate.weekday() === 0;
   }
 
 }
