@@ -14,14 +14,19 @@ namespace Building.BLL.Services
             _unitOfWork = unitOfWork;
         }
 
-        public Task<IReadOnlyList<T>> GetAllDropdownDataAsync<T>()
+        public Task<IReadOnlyList<Domain.Entities.Building>> GetBuildingDropdownDataAsync()
         {
-            throw new System.NotImplementedException();
+            return _unitOfWork.BuildingRepository.GetAllAsync();
         }
 
-        //public Task<IReadOnlyList<Reading>> GetAllAsync()
-        //{
-        //    return _unitOfWork.ReadingRepository.GetAllAsync();
-        //}
+        public Task<IReadOnlyList<DataField>> GetDataFieldDropdownDataAsync()
+        {
+            return _unitOfWork.DataFieldRepository.GetAllAsync();
+        }
+
+        public Task<IReadOnlyList<Object>> GetObjectDropdownDataAsync()
+        {
+            return _unitOfWork.ObjectRepository.GetAllAsync();
+        }
     }
 }
