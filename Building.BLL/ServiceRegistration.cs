@@ -8,6 +8,7 @@ namespace Building.BLL
         public static void AddBusinessLogicLayer(this IServiceCollection services)
         {
             services.AddTransient<IReadingService, ReadingService>();
+            services.AddTransient<IDropdownLoadService, DropdownLoadService>();
         }
     }
 }
