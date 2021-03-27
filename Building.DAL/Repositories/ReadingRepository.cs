@@ -39,8 +39,8 @@ namespace Building.DAL.Repositories
                   WHERE [BuildingId] = {readingDto.BuildingId} 
 		                AND [ObjectId] = {readingDto.ObjectId}
 		                AND [DatafieldId] = {readingDto.DataFieldId}
-                        AND[Timestamp] >= { readingDto.TimestampFrom}
-                        AND[Timestamp] <= { readingDto.TimestampTo}";
+                        AND[Timestamp] >= '{ readingDto.TimestampFrom}'
+                        AND[Timestamp] <= '{ readingDto.TimestampTo}'";
 
             using var connection = new SqlConnection(_connectionString);
 

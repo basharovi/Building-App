@@ -20,9 +20,13 @@ export class ReadingChartComponent implements OnInit{
     this.dropDownService.getBuildingList();
     this.dropDownService.getDataFieldList();
     this.dropDownService.getObjectList();
+    alert(new Date().toISOString());
   }
 
   buildingSelect : any = [];
+  objectSelect : any = [];
+  dataFieldSelect : any = [];
+
   selected: any;
 
   GetDataSet(){
@@ -49,8 +53,6 @@ export class ReadingChartComponent implements OnInit{
     return timestampList;
   }
 
-  
-
   lineChartOptions = {
     responsive: true,
   };
@@ -73,11 +75,14 @@ export class ReadingChartComponent implements OnInit{
   };
 
   filterData(){
-    const selectedBuilding = this.buildingSelect?.name;
-    
-    console.log(selectedBuilding);
 
-    console.log(this.selected);
+    this.readingService.readingVm.buildingId = this.buildingSelect?.id;
+    this.readingService.readingVm.objectId = this.objectSelect?.id;
+    this.readingService.readingVm.dataFieldId = this.dataFieldSelect?.id;
+    this.readingService.readingVm.timestampFrom = this.selected?.startDate.toISOString();
+    this.readingService.readingVm.timestampTo = this.selected?.endDate.toISOString();
+
+    this.readingService.filterList();
   }
 
   isInvalidDate(inputDate: { weekday: () => number; }) {

@@ -7,3 +7,11 @@ export class Reading {
     value: number=0.0;
     timestamp: Date = new Date();
 }
+
+export class ReadingVm{
+    buildingId: number=0;
+    dataFieldId: number=0;
+    objectId: number=0;
+    timestampFrom: Date | undefined;
+    timestampTo: Date | undefined;
+}
