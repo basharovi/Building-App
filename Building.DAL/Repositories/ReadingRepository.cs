@@ -20,7 +20,7 @@ namespace Building.DAL.Repositories
 
         public async Task<IReadOnlyList<Reading>> GetAllAsync()
         {
-            const string sql = "SELECT * FROM Reading";
+            const string sql = "EXEC Readings";
             using var connection = new SqlConnection(_connectionString);
 
             var result = await connection.QueryAsync<Reading>(sql);
@@ -29,18 +29,8 @@ namespace Building.DAL.Repositories
 
         public async Task<IReadOnlyList<Reading>> GetAllFilteredAsync(ReadingDto readingDto)
         {
-            var sql = $@"SELECT    [BuildingId]
-                                  ,[ObjectId]
-                                  ,[DatafieldId]
-                                  ,[Value]
-                                  ,[Timestamp]
-                  FROM [BuildingDB].[dbo].[Reading]
-
-                  WHERE [BuildingId] = {readingDto.BuildingId} 
-		                AND [ObjectId] = {readingDto.ObjectId}
-		                AND [DatafieldId] = {readingDto.DataFieldId}
-                        AND[Timestamp] >= '{ readingDto.TimestampFrom}'
-                        AND[Timestamp] <= '{ readingDto.TimestampTo}'";
+            var sql = $@"EXEC FilteredReadings {readingDto.BuildingId}, {readingDto.ObjectId}, 
+                      {readingDto.DataFieldId}, '{readingDto.TimestampFrom}', '{readingDto.TimestampTo}'";
 
             using var connection = new SqlConnection(_connectionString);
 

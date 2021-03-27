@@ -20,7 +20,6 @@ export class ReadingChartComponent implements OnInit{
     this.dropDownService.getBuildingList();
     this.dropDownService.getDataFieldList();
     this.dropDownService.getObjectList();
-    alert(new Date().toISOString());
   }
 
   buildingSelect : any = [];
