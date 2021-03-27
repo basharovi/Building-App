@@ -78,8 +78,8 @@ export class ReadingChartComponent implements OnInit{
     this.readingService.readingVm.buildingId = this.buildingSelect?.id;
     this.readingService.readingVm.objectId = this.objectSelect?.id;
     this.readingService.readingVm.dataFieldId = this.dataFieldSelect?.id;
-    this.readingService.readingVm.timestampFrom = this.selected?.startDate.toISOString();
-    this.readingService.readingVm.timestampTo = this.selected?.endDate.toISOString();
+    this.readingService.readingVm.timestampFrom = this.selected?.startDate?.toISOString();
+    this.readingService.readingVm.timestampTo = this.selected?.endDate?.toISOString();
 
     this.readingService.filterList();
   }

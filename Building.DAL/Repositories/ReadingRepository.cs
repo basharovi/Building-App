@@ -29,7 +29,7 @@ namespace Building.DAL.Repositories
 
         public async Task<IReadOnlyList<Reading>> GetAllFilteredAsync(ReadingDto readingDto)
         {
-            var sql = $@"EXEC FilteredReadings {readingDto.BuildingId}, {readingDto.ObjectId}, 
+            var sql = $@"EXEC FilteredReading {readingDto.BuildingId}, {readingDto.ObjectId}, 
                       {readingDto.DataFieldId}, '{readingDto.TimestampFrom}', '{readingDto.TimestampTo}'";
 
             using var connection = new SqlConnection(_connectionString);
